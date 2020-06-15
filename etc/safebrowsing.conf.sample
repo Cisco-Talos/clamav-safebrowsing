@@ -1,0 +1,13 @@
+<safebrowsing>
+    # Google's apikey for the safebrowsing datafeed
+    apikey = APIKEYHERE
+
+    ## MySQL database parameters
+    db_host = localhost
+    db_user = sbclient
+    db_pw = PASSWORDHERE
+    db_name = sbclient
+
+    ## outputdir is where the update python makes its safebrowsing.gdb
+    outputdir = /var/db/safebrowsing/output/
+</safebrowsing>

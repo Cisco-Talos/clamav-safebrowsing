@@ -1,0 +1,4 @@
+mysqlclient
+sqlalchemy
+google-api-python-client
+apacheconfig
