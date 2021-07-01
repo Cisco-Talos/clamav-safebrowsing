@@ -131,9 +131,10 @@ if __name__ == "__main__":
 
     with apacheconfig.make_loader() as loader:
         config = loader.load(opts.configfile)['safebrowsing']
-        db_host, db_user, db_pw, db_name = [
-            config.get(key) for key in ["db_host", "db_user", "db_pw", "db_name"]
+        db_host, db_user, db_pw, db_name, outputdir = [
+            config.get(key) for key in ["db_host", "db_user", "db_pw", "db_name", "outputdir"]
         ]
 
     g = GDBWriter(db_host, db_user, db_pw, db_name)
-    g.writegdb('safebrowsing.gdb')
+    outpath = os.path.join(outputdir, "safebrowsing.gdb")
+    g.writegdb(outpath)
