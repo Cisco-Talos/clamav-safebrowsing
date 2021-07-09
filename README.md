@@ -17,20 +17,26 @@ object, and purge all existing records.
 lists within the database and generate GDB signature files and various modules
 for interacting with the database and Safebrowsing API.
 
-## Installation
+## Requirements
 
-`clamsb` requires a few third-party libraries that are listed in the
+`clamsb` requires:
+
+- A **lot** of RAM. We recommend a system with at least 12GB of RAM.
+
+- A few third-party libraries that are listed in the
 requirements.txt file; these libraries can also be installed through `setup.py`.
 
-`clamsb` requires a Google API key with access to the Safebrowsing V4 API.
+- A Google API key with access to the Safebrowsing V4 API.
 Instructions for acquiring an API key can be found at https://developers.google.com/safe-browsing/v4/get-started.
 
-`clamsb` requires a MySQL database to manage Safebrowsing Lists and build logs.
+- A MySQL database to manage Safebrowsing Lists and build logs.
 The database will need a user with credentials to create, modify, and delete
 tables on the database. It is recommended you generate a specialized database
 and user for access. Once the database parameters are specified to the `clamsb`
 configuration, required tables will automatically be generated on the first
 sync.
+
+## Installation
 
 `clamsb` can be installed from this directory using the `setup.py` script but
 can be ran directly from this directory. `clamsbsync.py` and `clamsbwrite.py`
@@ -95,7 +101,7 @@ Both `clamsbsync.py` and `clamsbwrite.py` have the following options:
 
 ## License & Copyright
 
-Copyright (C) 2020 Cisco Systems, Inc. and/or its affiliates. All rights reserved.
+Copyright (C) 2021 Cisco Systems, Inc. and/or its affiliates. All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
