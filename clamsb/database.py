@@ -31,7 +31,7 @@ class SBPrefix(Base):
     reflist_id = Column(INTEGER(unsigned=True), ForeignKey('sbclient_v4_lists.id'), primary_key=True)
 
     reflist = relationship('SBList', back_populates='prefixes')
-    hashes = relationship('SBHash', order_by='SBHash.hash')
+    hashes = relationship('SBHash', overlaps='hashes', order_by='SBHash.hash')
     __table_args__ = (UniqueConstraint('prefix', 'reflist_id', name='_prefix_reflist'),)
 
 class SBHash(Base):
@@ -41,7 +41,7 @@ class SBHash(Base):
     prefix = Column(CHAR(64))
     reflist_id = Column(INTEGER(unsigned=True), ForeignKey('sbclient_v4_lists.id'), nullable=False, primary_key=True)
 
-    reflist = relationship('SBList', back_populates='hashes')
+    reflist = relationship('SBList', overlaps='hashes', back_populates='hashes')
     __table_args__ = (UniqueConstraint('hash', 'reflist_id', name='_hash_reflist'),
                       ForeignKeyConstraint([prefix, reflist_id], [SBPrefix.prefix, SBPrefix.reflist_id]),)
 
